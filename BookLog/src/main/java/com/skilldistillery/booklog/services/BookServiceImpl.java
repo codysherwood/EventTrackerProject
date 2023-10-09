@@ -10,37 +10,46 @@ import com.skilldistillery.booklog.repositories.BookRepository;
 
 @Service
 public class BookServiceImpl implements BookService {
-	
+
 	@Autowired
 	private BookRepository bookRepo;
 
 	@Override
 	public List<Book> getAllBooks() {
-	return	bookRepo.findAll();
+		return bookRepo.findAll();
 	}
 
 	@Override
-	public Book getDiveById(int bookId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Book getBookById(int bookId) {
+		return bookRepo.searchById(bookId);
 	}
 
 	@Override
 	public Book createBook(Book book) {
-		// TODO Auto-generated method stub
-		return null;
+		bookRepo.saveAndFlush(book);
+		return book;
 	}
 
 	@Override
-	public Book update(int diveId, Book updatingBook) {
-		// TODO Auto-generated method stub
-		return null;
+	public Book update(int id, Book updatingBook) {
+			Book existingBook = bookRepo.searchById(id);
+			if (existingBook != null) {
+				existingBook.setTitle(updatingBook.getTitle());
+				existingBook.setNumberOfWords(updatingBook.getNumberOfWords());
+				bookRepo.saveAndFlush(existingBook);
+			}
+			return existingBook;
 	}
 
 	@Override
 	public boolean delete(int bookId) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean deleted = false;
+		Book toDelete = bookRepo.searchById(bookId);
+		if(toDelete != null) {
+			bookRepo.deleteById(bookId);
+			deleted = true;
+		}
+		return deleted;
 	}
 
 }

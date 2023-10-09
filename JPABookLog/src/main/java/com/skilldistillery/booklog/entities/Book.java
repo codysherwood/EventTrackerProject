@@ -2,6 +2,7 @@ package com.skilldistillery.booklog.entities;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,6 +16,9 @@ public class Book {
 	private int id;
 	
 	private String title;
+	
+	@Column(name="number_of_words")
+	private Integer numberOfWords;
 
 	public Book() {
 		super();
@@ -34,6 +38,14 @@ public class Book {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	
+	public Integer getNumberOfWords() {
+		return numberOfWords;
+	}
+
+	public void setNumberOfWords(Integer numberOfWords) {
+		this.numberOfWords = numberOfWords;
 	}
 
 	@Override
