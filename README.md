@@ -1,5 +1,11 @@
 # EventTrackerProject
 
+## Overview
+
+## REST API
+
+### Endpoints
+
 | HTTP Verb | URI             | Request Body | Response Body | Status |
 |-----------|-----------------|--------------|---------------|---------|
 | GET       | `/api/books`    |              | List of books | 200   |
