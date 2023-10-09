@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.skilldistillery.booklog.entities.Book;
 import com.skilldistillery.booklog.repositories.BookRepository;
 
+
 @Service
 public class BookServiceImpl implements BookService {
 
