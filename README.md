@@ -20,6 +20,8 @@
 {
 	"id": 1,
     "title": "The Way of Kings",
-    "numberOfWords": 383389
+    "numberOfWords": 383389,
+    "imageUrl": "https://c8.alamy.com/comp/BBYJDM/open-book-cut-out-BBYJDM.jpg",
+    "dateFinished": "2010-10-10" 
 }
 ```
