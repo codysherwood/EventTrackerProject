@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="js/script.js"></script>
+<meta charset="UTF-8">
+<title>Book Log</title>
+</head>
+<body>
+	
+	<h1>Cody's Book Log</h1>
+	
+	<div id="bookDetailDiv">	
+	</div>
+	
+	<div id="newBookFormDiv">
+	<h2>Add Book to Log</h2>
+		<form name="createBookForm">
+    <label for="title">Title</label><input type="text" name="title"><br>
+     <label for="numberOfWords">Number of Words</label><input type="text" name="numberOfWords"><br>
+     <label for="imageUrl">Image URL</label> <input type="text" name="imageUrl" value='https://c8.alamy.com/comp/BBYJDM/open-book-cut-out-BBYJDM.jpg'><br>
+      <label for="dateFinished">Date Finished</label> <input type="text" name="dateFinished"><br>
+    <button id="createBookButton" name="createBookButton">Create Book</button><br>
+  </form>	
+	</div>
+	
+	<div id="bookListDiv">	
+	</div>
+	
+	
+	<div id="editBookFormDiv">
+		<h2>Update Book</h2>
+		<form name="updateBookForm" id="">
+			<input hidden type="text" name="id" id="id">
+    <label for="title">Title</label><input type="text" name="title" id="title" ><br>
+     <label for="numberOfWords">Number of Words</label><input type="text" name="numberOfWords" id="numberOfWords"><br>
+     <label for="imageUrl">Image URL</label> <input type="text" name="imageUrl" id="imageUrl"><br>
+      <label for="dateFinished">Date Finished</label> <input type="text" name="dateFinished" id="dateFinished"><br>
+    <button id="updateBookButton" name="updateBookButton">Update Book</button><br>
+    <button id="homeButton" name="homeButton">Go Home</button><br>
+  </form>		
+	</div>
+		
+	
+</body>
+</html>

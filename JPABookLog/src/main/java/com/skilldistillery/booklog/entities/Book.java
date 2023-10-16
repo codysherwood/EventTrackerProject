@@ -1,5 +1,6 @@
 package com.skilldistillery.booklog.entities;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -19,6 +20,12 @@ public class Book {
 	
 	@Column(name="number_of_words")
 	private Integer numberOfWords;
+	
+	@Column(name="image_url")
+	private String imageUrl;
+	
+	@Column(name="date_finished")
+	private LocalDate dateFinished;
 
 	public Book() {
 		super();
@@ -47,6 +54,22 @@ public class Book {
 	public void setNumberOfWords(Integer numberOfWords) {
 		this.numberOfWords = numberOfWords;
 	}
+	
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
+	public LocalDate getDateFinished() {
+		return dateFinished;
+	}
+
+	public void setDateFinished(LocalDate dateFinished) {
+		this.dateFinished = dateFinished;
+	}
 
 	@Override
 	public int hashCode() {
@@ -67,7 +90,8 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", title=" + title + ", numberOfWords=" + numberOfWords + "]";
+		return "Book [id=" + id + ", title=" + title + ", numberOfWords=" + numberOfWords + ", imageUrl=" + imageUrl
+				+ ", dateFinished=" + dateFinished + "]";
 	}
 
 	
