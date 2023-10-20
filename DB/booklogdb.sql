@@ -22,8 +22,10 @@ DROP TABLE IF EXISTS `book` ;
 
 CREATE TABLE IF NOT EXISTS `book` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `title` VARCHAR(45) NULL,
+  `title` VARCHAR(45) NOT NULL,
   `number_of_words` VARCHAR(45) NULL,
+  `image_url` VARCHAR(2000) NULL DEFAULT 'https://c8.alamy.com/comp/BBYJDM/open-book-cut-out-BBYJDM.jpg',
+  `date_finished` DATETIME NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -43,10 +45,10 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `booklogdb`;
-INSERT INTO `book` (`id`, `title`, `number_of_words`) VALUES (1, 'The Way of Kings', '383389');
-INSERT INTO `book` (`id`, `title`, `number_of_words`) VALUES (2, 'The Final Empire', '210203');
-INSERT INTO `book` (`id`, `title`, `number_of_words`) VALUES (3, 'The Well of Ascension', '244371');
-INSERT INTO `book` (`id`, `title`, `number_of_words`) VALUES (4, 'The Shining', '197041');
+INSERT INTO `book` (`id`, `title`, `number_of_words`, `image_url`, `date_finished`) VALUES (1, 'The Way of Kings', '383389', 'https://upload.wikimedia.org/wikipedia/en/thumb/8/8b/TheWayOfKings.png/220px-TheWayOfKings.png', '2021-05-22');
+INSERT INTO `book` (`id`, `title`, `number_of_words`, `image_url`, `date_finished`) VALUES (2, 'The Final Empire', '210203', 'https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Mistborn-cover.jpg/220px-Mistborn-cover.jpg', '2021-11-10');
+INSERT INTO `book` (`id`, `title`, `number_of_words`, `image_url`, `date_finished`) VALUES (3, 'The Well of Ascension', '244371', 'https://upload.wikimedia.org/wikipedia/en/thumb/7/7b/Mistborn-_The_Well_of_Ascension_by_Brandon_Sanderson.jpg/220px-Mistborn-_The_Well_of_Ascension_by_Brandon_Sanderson.jpg', '2022-03-03');
+INSERT INTO `book` (`id`, `title`, `number_of_words`, `image_url`, `date_finished`) VALUES (4, 'The Shining', '197041', 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/The_Shining_%281977%29_front_cover%2C_first_edition.jpg/220px-The_Shining_%281977%29_front_cover%2C_first_edition.jpg', '2018-07-16');
 
 COMMIT;
 
