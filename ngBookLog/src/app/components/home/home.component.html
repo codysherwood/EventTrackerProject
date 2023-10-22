@@ -1,11 +1,57 @@
-<h1>Cody's Book Log</h1>
+<h1  (click)="editBook = null ; selected = null">Cody's Book Log</h1>
 
 
+<div *ngIf="!selected">
+<h6>Add Book to Log</h6>
+<form>
+  <label for="newTitle">Title: </label>
+  <input type="text" name="newTitle" value="john" [(ngModel)]="newBook.title"><br>
+  <label for="newWordCount">Word Count:</label>
+  <input type="number" name="newWordCount" [(ngModel)]="newBook.numberOfWords"><br>
+  <label for="newDateFinished">Date Finished:</label>
+  <input type="text" name="newDateFinished:" [(ngModel)]="newBook.dateFinished" placeholder="yyyy-mm-dd"><br>
+  <label for="newImage">Image Url:</label>
+  <input  type="text" name="newImage" [(ngModel)]="newBook.imageUrl" value="https://miro.medium.com/v2/resize:fit:5120/1*42ebJizcUtZBNIZPmmMZ5Q.jpeg" ><br>
+  <button class="btn btn-primary" type="submit" (click)="createBook(newBook); editBook = null ; selected = newBook">Add Book</button>
+</form>
+  <h6>All Books List</h6>
+  <ul>
+    <li   *ngFor="let book of books">{{book.title}}<br><img (click)="selected = book" class="btn"  width="165" src="{{book.imageUrl}}"  ></li>
+  </ul>
+</div>
 
-<!-- TODO make a table -->
+<div *ngIf="selected">
+  <button (click)="selected = null ; editBook = null" class="btn btn-primary">Home</button><br>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Word Count</th>
+    <th>Date Finished</th>
+  </tr>
+  <tr>
+    <td>{{selected.title}}</td>
+    <td>{{selected.numberOfWords}}</td>
+    <td>{{selected.dateFinished}}</td>
+  </tr>
+  <tr>
+    <td><img width="130" src="{{selected.imageUrl}}"></td>
+    <td><button *ngIf="!editBook" (click)="editBook = selected" class="btn btn-primary">Edit Book</button></td>
+    <td><button (click)="deleteBook(selected.id) ; editBook = null ; selected = null"  class="btn btn-danger" >Delete Book</button></td>
+  </tr>
+</table>
+</div>
+<div *ngIf="editBook">
 
-<ul>
-  <li *ngFor="let book of books">{{book.title}}</li>
-  <li *ngFor="let book of books">{{book.dateFinished}}</li>
-  <!-- <li *ngFor="let book of books">{{book | json}} </li> -->
-</ul>
+  <form>
+    <label for="editTitle">Title:</label>
+    <input type="text" name="editTitle" [(ngModel)]="editBook.title"><br>
+    <label for="editWordCount">Word Count:</label>
+    <input type="number" name="editWordCount" [(ngModel)]="editBook.numberOfWords"><br>
+    <label for="editDateFinished">Date Finished:</label>
+    <input type="text" name="editDateFinished" [(ngModel)]="editBook.dateFinished"><br>
+    <label for="editImage">Image Url:</label>
+    <input type="text" name="editImage" [(ngModel)]="editBook.imageUrl"><br>
+    <button class="btn btn-primary" type="submit" (click)="updateBook(editBook); editBook = null ; selected = null">Update Book</button>
+  </form>
+</div>
+

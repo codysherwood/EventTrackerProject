@@ -11,6 +11,9 @@ export class HomeComponent implements OnInit {
 
   books: Book[] = [];
   selected: Book | null = null;
+  editBook: Book | null = null;
+  newBook : Book = new Book();
+
 
 
   constructor(
@@ -18,7 +21,7 @@ export class HomeComponent implements OnInit {
   ){}
 
   ngOnInit(): void {
-    this.loadBooks();
+    this.reload();
   }
 
   loadBooks() {
@@ -33,4 +36,49 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  updateBook(book: Book) {
+    this.bookService.update(book).subscribe({
+      next: (book) =>{
+        this.reload();
+      },
+      error: (param) => {
+        console.error('BookListComponent.updateBook - error updating Book')
+      }
+    })
+  }
+
+  deleteBook(bookId: number) {
+    this.bookService.destroy(bookId).subscribe({
+      next: () => {
+        this.reload();
+      },
+      error: (param) => {
+        console.log('an error')
+      }
+    })
+  }
+
+  createBook(newBook: Book){
+    this.bookService.createBook(newBook).subscribe({
+      next: (book) => {
+        this.newBook = new Book();
+        this.reload();
+      },
+      error: (param) => {
+        console.error('BookListCompnent.addBook - error creating Book: ')
+      }
+    })
+  }
+
+  reload() {
+    this.bookService.index().subscribe({
+      next: (bookList) => {
+        this.books = bookList;
+      },
+      error: (param) => {
+        console.error('BookListCompnent - error getting books: ');
+        console.log('some error');
+      },
+    });
+  }
 }

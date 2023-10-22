@@ -8,10 +8,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { OtherComponent } from './components/other/other.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    OtherComponent
   ],
   imports: [
     BrowserModule,
