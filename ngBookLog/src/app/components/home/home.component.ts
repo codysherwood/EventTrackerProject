@@ -1,3 +1,4 @@
+import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Book } from 'src/app/models/book';
 import { BookService } from 'src/app/services/book.service';
@@ -59,6 +60,9 @@ export class HomeComponent implements OnInit {
   }
 
   createBook(newBook: Book){
+    if(newBook.imageUrl == '') {
+      newBook.imageUrl = "https://miro.medium.com/v2/resize:fit:5120/1*42ebJizcUtZBNIZPmmMZ5Q.jpeg"
+    }
     this.bookService.createBook(newBook).subscribe({
       next: (book) => {
         this.newBook = new Book();
