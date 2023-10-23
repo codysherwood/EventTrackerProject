@@ -35,6 +35,8 @@ public class BookServiceImpl implements BookService {
 	public Book update(int id, Book updatingBook) {
 			Book existingBook = bookRepo.searchById(id);
 			if (existingBook != null) {
+				existingBook.setDateFinished(updatingBook.getDateFinished());
+				existingBook.setImageUrl(updatingBook.getImageUrl());
 				existingBook.setTitle(updatingBook.getTitle());
 				existingBook.setNumberOfWords(updatingBook.getNumberOfWords());
 				bookRepo.saveAndFlush(existingBook);
