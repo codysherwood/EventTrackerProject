@@ -9,7 +9,7 @@ A full stack angualr project with CRUD operations.
 * JDBC
 * Eclipse/Spring Tool Suite
 * Git/GitHub
-* Sublim
+* Sublime
 * HTML
 * EC2
 * JavaScript
