@@ -4,21 +4,21 @@
 A full stack angualr project with CRUD operations. 
 
 ## Technologies Used
--MySQL
--MAMP
--JDBC
--Eclipse/Spring Tool Suite
--Git/GitHub
--Sublim
--HTML
--EC2
--JavaScript
--Angular
+* MySQL
+* MAMP
+* JDBC
+* Eclipse/Spring Tool Suite
+* Git/GitHub
+* Sublim
+* HTML
+* EC2
+* JavaScript
+* Angular
 
 ## Lessons Learned
--Angular Routing
--Click Events
--Implementing angular models, components and services
+* Angular Routing
+* Click Events
+* Implementing angular models, components and services
 
 ### Endpoints
 
